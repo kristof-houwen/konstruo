@@ -1,7 +1,6 @@
 <?php 
 
 require_once('StsAutoloader.php');
-require_once(APP_PATH . '/lib/smarty/Smarty.class.php');  // --> we need to init smarty for the auto_load !!
 
 class StsApp {
 	private $_controllerName;

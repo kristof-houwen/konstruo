@@ -5,8 +5,7 @@ class StsController {
 	private $_view = null;
 	private  $_registry = null;
 
-	protected $masterTpl = null;
-	protected $contentTpl = null;
+	protected $tpl = null;
 	protected $viewbag = array();
 
 	// property op aan te geven of de controller afgeschermd moet worden van de buitenwereld
@@ -18,15 +17,9 @@ class StsController {
 		$this->set_registry($registry);
 	}
 
-	/* ***** Getters and setters ***********/
-	public function set_masterTpl($value) 
+	public function set_tpl($value) 
 	{
-		$this->masterTpl = $value;
-	}
-
-	public function set_contentTpl($value) 
-	{
-		$this->contentTpl = $value;
+		$this->tpl = $value;
 	}
 	
 	protected function set_registry($value)
@@ -55,28 +48,16 @@ class StsController {
 	 * this method must be called from every actionmethod to return a HTML view
 	 *
 	 */
-	public function view($model = null, $contentTemplate = null, $masterTemplate = null) {
+	public function view($model = null, $tpl = null) {
 		if ($this->_view == null)
 			$this->_view = new StsHtmlView();
 
-		// assign vars to smarty in view
-		if ($viewbag != null && count($viewbag) > 0) {
-			foreach ($viewbag as $key => $value)
-				$this->_view->addVar($key, $value);
-		}
-
-		// assign template known in controller as master template
-		$this->_view->set_masterTemplate($this->masterTpl);
-		$this->_view->set_contentTemplate($this->contentTpl);
-
-		// override the defaults with supplied parameters
-		if ($masterTemplate != null)
-			$this->_view->set_masterTemplate($masterTemplate);
-		if ($contentTemplate != null)
-			$this->_view->set_contentTemplate($contentTemplate);
+		// set tpl and model
+		if ($tpl != null)
+			$this->_view->set_tpl($tpl);
 		if ($model != null)
 			$this->_view->set_viewModel($model);
-		
+
 		return $this->_view;
 	}
 }

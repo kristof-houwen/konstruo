@@ -1,19 +1,13 @@
 <?php
 
-
-require_once(APP_PATH . '/lib/smarty/Smarty.class.php');
-
 interface IView {
 	public function render();
 }
 
 class StsHtmlView implements IView {
 	
-	private $_smarty = null;
-	private $_tmplDirs = null;
-	private $_masterTemplate = null;    // masterpage
-	private $_contentTemplate = null;	// filename used for content display  {include file="$content"}
-	private $_viewModel = null;			// every view has a viewmodel {$model}
+	private $_tpl = null;	// filename used for content display  
+	private $_viewModel = null;			// every view has a viewmodel 
 	
 	private $_error404 = "error/error404.html";
 
@@ -22,35 +16,18 @@ class StsHtmlView implements IView {
 
 	public function __construct()
 	{
-		$this->_smarty = new Smarty();
-		$this->_smarty->setTemplateDir(SMARTY_TEMPLATE_PATH);
-		$this->_smarty->setCompileDir(SITE_PATH . '/templates_c');
-		$this->_smarty->setConfigDir(SITE_PATH . '/config');
-		$this->_smarty->setCacheDir(SITE_PATH . '/cache');
-
-		$this->_tmplDirs = $this->_smarty->getTemplateDir();
+		// caching ???
 	}
 
 	/* ***** GETTERS - SETTERS ********** */ 
-	public function get_masterTemplate()
+	public function get_tpl() 
 	{
-		return $this->_masterTemplate();
+		return $this->_tpl;
 	}
 
-	public function set_masterTemplate($value) 
+	public function set_tpl($value)
 	{
-		$this->_masterTemplate = $value;
-
-	}
-
-	public function get_contentTemplate() 
-	{
-		return $this->_contentTemplate;
-	}
-
-	public function set_contentTemplate($value)
-	{
-		$this->_contentTemplate = $value;
+		$this->_tpl = $value;
 	}
 
 	public function get_viewModel()
@@ -66,55 +43,16 @@ class StsHtmlView implements IView {
 	/* ***** PUBLIC FUNCTIONS ********** */
 	public function render()
 	{
-		// $this->createView();
-		// try {
-		// 	$this->_smarty->display($this->_masterTemplate);
-		// } catch (Exception $e) {
-		// 	echo 'Caught exception: ',  $e->getMessage(), "\n";
-		// }
-
 		$model = null;
 		if ($this->_viewModel != null) {
 			$model=$this->_viewModel;
 		}
-			//$this->_smarty->assign('model', $this->_viewModel);
 		
-		if ($this->_contentTemplate != null && is_file($this->_tmplDirs[0] . $this->_contentTemplate))
-			include($this->_tmplDirs[0] . $this->_contentTemplate);
+		if ($this->_tpl != null && is_file(VIEWS_PATH . "/" . $this->_tpl))
+			include(VIEWS_PATH . "/" . $this->_tpl);
+		else 
+			include(VIEWS_PATH . "/" . $this->_error404);
 	}
-	
-	/**
-	 * use this function to assign variables you have declared in the template
-	 */
-	public function addVar($varname, $value) {
-		$this->_smarty->assign($varname, $value);
-	}
-
-	/* ***** Private helper functions ********** */
-	
-	/**
-	 * Method to assign content template and model to smarty
-	 */
-	private function createView(){
-		if ($this->_masterTemplate == null || !is_file($this->_tmplDirs[0] . $this->_masterTemplate)) {
-			$this->_masterTemplate = $this->_error404;
-			return -1;
-		}
-		
-		// only needed to execute when there is no error in mastertemplate
-		if ($this->_contentTemplate != null && is_file($this->_tmplDirs[0] . $this->_contentTemplate))
-			$this->_smarty->assign('content', $this->_contentTemplate);
-
-		if ($this->_viewModel != null)
-			//$this->_smarty->assign('model', $this->_viewModel);
-			$model=$this->_viewModel;
-
-	}
-
-
-
-		
-
 }
 
 

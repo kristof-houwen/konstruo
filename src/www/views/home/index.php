@@ -1,0 +1,30 @@
+<?php include VIEWS_PATH . "/shared/head.php"; ?>
+<body>
+<div class="span2">
+  	<ul class="nav nav-list">
+        <li class="nav-header">List header</li>
+        <?php foreach ($model->menu as $key => $value) {
+            print('<li class="active"><a href="#">' . $value . '</a></li>');
+        }
+?>
+    </ul>
+</div>
+<div class="span10">
+    <h3>Hello <?php echo $model->firstname; ?> </h3>
+    <!-- main content comes here -->
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <br />
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+</body>
+</html>

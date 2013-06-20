@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/smallitsol_development/!svn/ver/231/SITSOL_1111-001_eshop/trunk/src/lib/sitsol
+END
+StsHtmlView.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/smallitsol_development/!svn/ver/231/SITSOL_1111-001_eshop/trunk/src/lib/sitsol/StsHtmlView.php
+END
+StsAutoloader.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/smallitsol_development/!svn/ver/231/SITSOL_1111-001_eshop/trunk/src/lib/sitsol/StsAutoloader.php
+END
+StsApp.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/smallitsol_development/!svn/ver/231/SITSOL_1111-001_eshop/trunk/src/lib/sitsol/StsApp.php
+END
+StsViewEngine.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/smallitsol_development/!svn/ver/230/SITSOL_1111-001_eshop/trunk/src/lib/sitsol/StsViewEngine.php
+END
+StsRouter.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/smallitsol_development/!svn/ver/231/SITSOL_1111-001_eshop/trunk/src/lib/sitsol/StsRouter.php
+END
+StsController.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/smallitsol_development/!svn/ver/231/SITSOL_1111-001_eshop/trunk/src/lib/sitsol/StsController.php
+END
+StsMySqlDal.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/smallitsol_development/!svn/ver/231/SITSOL_1111-001_eshop/trunk/src/lib/sitsol/StsMySqlDal.php
+END
+StsBase.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/smallitsol_development/!svn/ver/230/SITSOL_1111-001_eshop/trunk/src/lib/sitsol/StsBase.php
+END

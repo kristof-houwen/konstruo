@@ -1,0 +1,31 @@
+; This is a sample configuration file
+; Comments start with ';', as in php.ini
+
+[database]
+db_host = "localhost"
+db_database = "shop"
+db_user = "root"
+db_pwd = "root"
+db_port = 3306
+
+[path]
+; de define the names as {name}_PATH, we alway put the values behind SITE_PATH, the full path to index.php
+smarty_template = "/views"
+controller = "/controllers"
+lib = "/lib"
+views = "/views"
+css = "/content/css"
+js = "/content/js"
+images = "/content/img"
+
+[autoload]
+; the defines paths are added to the autoloader search paths array, we alway put the values behind SITE_PATH, the full path to index.php
+controllers = "/controllers"				
+lib_sitsol = "/lib/sitsol"
+helpers = "/helpers"
+
+
+[site_info]
+base_url = "eshop.sitsol.local"				
+default_controller = "HomeController"		
+default_action = "index"					

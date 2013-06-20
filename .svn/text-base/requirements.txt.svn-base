@@ -1,0 +1,18 @@
+Een -eshop/online order systeem die enkel gebruikers toelaat met een username en paswoord.  Het online order systeem kan worden gebruikt in nl - fr - en
+De gebruiker maakt zijn keuze uit de categoriën/subcategorieën.  Bij de selectie van een categorie met subcategoriën, wordt de lijst van deze subcategorieën getoond.
+Wanneer een categorie producten bevat, worden deze in een lijst getoond, met daarnaast een link om deze toe te voegen aan de basket.
+De basket kan door de gebruiker geraadpleegd worden en de inhoud ervan kan via het scherm van de raadpleging worden gewijzigd (aantal wijzigen & producten verwijderen)
+Bij checkout krijgt de gebruiker een "1-page checkout" waarbij klantgegevens, leverings- en facturatieadres alsook betalingsmethode worden ogegeven.  bij bevestiging wordt een e-mail verstuurd naar de klant en de shop
+
+
+1) opzetten testframework
+2) controller die view genereert
+3) router die controller opstart
+4) opvangen van de parameters in globale registry
+
+5) tonen van de producten in een categorie
+6) toevoegen en verwijderen van producten in basket
+7) verzenden van e-mail
+
+8) login (beveiliging)
+9) vertalingen

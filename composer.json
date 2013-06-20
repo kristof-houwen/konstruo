@@ -1,0 +1,7 @@
+{
+	"require": {
+   	 	"lastcraft/simpletest": "1.1.*",
+   	 	"smarty/smarty" : "v3.1.12",
+	}
+
+}

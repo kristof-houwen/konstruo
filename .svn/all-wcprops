@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/smallitsol_development/!svn/ver/231/SITSOL_1111-001_eshop/trunk/src
+END
+requirements.txt
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/smallitsol_development/!svn/ver/230/SITSOL_1111-001_eshop/trunk/src/requirements.txt
+END
+config.ini
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/smallitsol_development/!svn/ver/231/SITSOL_1111-001_eshop/trunk/src/config.ini
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/smallitsol_development/!svn/ver/231/SITSOL_1111-001_eshop/trunk/src/.htaccess
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/smallitsol_development/!svn/ver/230/SITSOL_1111-001_eshop/trunk/src/index.php
+END

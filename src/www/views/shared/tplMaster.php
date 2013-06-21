@@ -38,7 +38,7 @@
             <hr>
 
             <footer>
-                <p>&copy; SitSol 2012</p>
+                <p>&copy; SitSol 2013</p>
             </footer>
         
         </div> <!-- /container -->

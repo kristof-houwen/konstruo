@@ -24,55 +24,47 @@
  *
  * *****************************************************************************************************************************************************/
 
+class StsJsonView implements IView {
+	
+	private $_content = null;			// every view has a viewmodel 
+	
+	private $_error404 = "404.html";
 
-class StsAutoloader
-{
-	private static $_pathToSearch = array();
-	private static $_cache = array();
-	
-	public static function load_class($className)
+
+	/* ***** FIELDS & CONSTRUCTORS ********** */
+
+	public function __construct($content)
 	{
-		if (self::$_cache[$className]) {
-			include self::$_cache[$className];
-		} else {
-			$file = self::search_file($className);
-			if (!is_null($file)) {
-				include $file;
-			} else {
-				throw new Exception('Class ' . $className . ' not found.');
-			}
-		}
-		
-	}
-	
-	static function search_file($fileName)
-	{
-		foreach(self::$_pathToSearch as $path) {
-			if (is_file($path . "/" . $fileName . ".php")) {
-				self::add_to_cache($fileName, $path . "/" . $fileName . ".php");
-				return $path . "/" . $fileName . ".php";
-			}
-		}
-		return null;
-	}
-	
-	public static function add_path_to_search($path)
-	{
-		if (is_dir($path)) {
-			array_push(self::$_pathToSearch, $path);
-		}
-	}
-	
-	private static function add_to_cache($className, $fileName){
-		if (isset($_SESSION['autoloader_path'])) {
-			$_SESSION['autoloader_path'][$className] = $fileName;
-		} else {
-			self::$_cache[$className] = $fileName;
-			$_SESSION['autoloader_path'] = self::$_cache;
-		}
-		
+		$this->_content = $content;
 	}
 
+	/* ***** GETTERS - SETTERS ********** */ 
+	public function set_base_url($value)
+	{
+		$this->_base_url = $value;
+	}
+
+	public function get_content()
+	{
+		return $this->_content;
+	}
+
+	public function set_content($value)
+	{
+		$this->_content = $value;
+	}
+
+
+	/* ***** PUBLIC FUNCTIONS ********** */
+	public function render()
+	{
+		if ($this->_content != null)
+			echo json_encode($this->_content);
+		else
+			echo "";
+
+	}
 }
+
 
 ?>

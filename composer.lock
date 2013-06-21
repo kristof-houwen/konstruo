@@ -1,5 +1,9 @@
 {
-    "hash": "d24ac561152987c8512f2bd02afcacf6",
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "6208a39ac3fd2544d07fdde8cc3197b2",
     "packages": [
         {
             "name": "lastcraft/simpletest",
@@ -18,9 +22,7 @@
             "require": {
                 "php": ">=5.0.5"
             },
-            "time": "2012-06-12 05:22:54",
             "type": "library",
-            "installation-source": "dist",
             "license": [
                 "LGPL-2.0+"
             ],
@@ -31,57 +33,24 @@
                 }
             ],
             "description": "Unit testing, mock objects and web testing framework for PHP built around test cases.",
-            "homepage": "http://simpletest.org/"
-        },
-        {
-            "name": "smarty/smarty",
-            "version": "v3.1.12",
-            "source": {
-                "type": "svn",
-                "url": "http://smarty-php.googlecode.com/svn",
-                "reference": "/tags/v3.1.12/@4664"
-            },
-            "require": {
-                "php": ">=5.2"
-            },
-            "time": "2012-09-25 22:13:16",
-            "type": "library",
-            "installation-source": "source",
-            "autoload": {
-                "classmap": [
-                    "distribution/libs/Smarty.class.php"
-                ]
-            },
-            "license": [
-                "LGPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Monte Ohrt",
-                    "email": "monte@ohrt.com"
-                },
-                {
-                    "name": "Uwe Tews",
-                    "email": "uwe.tews@googlemail.com"
-                },
-                {
-                    "name": "Rodney Rehm",
-                    "email": "rodney.rehm@medialize.de"
-                }
-            ],
-            "description": "Smarty - the compiling PHP template engine",
-            "homepage": "http://www.smarty.net",
-            "keywords": [
-                "templating"
-            ]
+            "homepage": "http://simpletest.org/",
+            "time": "2012-06-12 05:22:54"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+
+    ],
     "aliases": [
 
     ],
     "minimum-stability": "stable",
     "stability-flags": [
+
+    ],
+    "platform": [
+
+    ],
+    "platform-dev": [
 
     ]
 }

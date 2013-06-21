@@ -1,12 +1,10 @@
 <?php
 
-//require_once(SITE_PATH . '/lib/sitsol/StsController.php');
-
 class HomeController extends StsController{
 
 	public function __construct()
 	{
-		
+		$this->set_tpl("shared/tplMaster.php");
 	}
 
 	public function index()
@@ -14,9 +12,15 @@ class HomeController extends StsController{
 		$model = new Foo();
 		$model->firstname = "Kristof";
 		$model->menu = array("home", "menu item 2", "menu item 3" );
-		return $this->view($model,'home/index.php');
+		return $this->view('home/index.php', $model);
 	}
 	
+	public function hello()
+	{
+		$data = new Foo2();
+		return $this->json($data);
+	}
+
 	public function customer($params)
 	{
 		echo 'Nr Customer = ' . $params[0] . '<hr />';

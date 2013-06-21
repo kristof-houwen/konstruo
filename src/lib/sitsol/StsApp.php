@@ -1,4 +1,28 @@
 <?php 
+/* **************************************************************************************************************************************************
+ * 
+ *  Copyright (C) 2013 by Kristof Houwen, Belgium.
+ *  All rights reserved.
+ *
+ *  Licensed under the European Union Public Licence (EUPL), Version 1.1 (the "License"); you may not use this file except in compliance
+ *  with the License. You may obtain a copy of the License at
+ *
+ *	http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ *  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ *  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ *  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ *
+ *  Author:		Kristof Houwen
+ *  Company:    SitSol webdesign
+ *  E-mail:		kristof(at)sitsol.be
+ *  Url:		www.sitsol.be
+ * 
+ *  Project:    SitSol Construct
+ *  Version:	0.1             
+ *
+ * *****************************************************************************************************************************************************/
 
 require_once('StsAutoloader.php');
 
@@ -25,6 +49,7 @@ class StsApp {
 	// read the config.ini file(s)
 	public function init() 
 	{
+		$this->loadInterfaces();
 		$this->readConfig();
 		spl_autoload_register(array('StsAutoloader', 'load_class'));
 		
@@ -38,7 +63,8 @@ class StsApp {
 		$router = new StsRouter($this->_registry);
 		$router->processUri();
 		$reflect  = new ReflectionClass($router->get_controller());			
-		$instance = $reflect->newInstanceArgs(array($this->_registry));
+		$instance = $reflect->newInstanceArgs();
+		$instance->set_registry($this->_registry);
 		// do we need te be authenticated?
 		if ($instance->get_isProtected()) {
 			if (!$this->securityCheck()) {
@@ -137,6 +163,36 @@ class StsApp {
 			}
 			$this->_routes[$name_route] = $r;	
 		}
+	}
+
+	private function loadInterfaces()
+	{
+		$directory = APP_PATH . "/lib/sitsol/interfaces";
+
+		/// create an array to hold directory list
+	    $results = array();
+
+	    // create a handler for the directory
+	    $handler = opendir($directory);
+
+	    // open directory and walk through the filenames
+	    while ($file = readdir($handler)) {
+
+	      // if file isn't this directory or its parent, add it to the results
+	      if ($file != "." && $file != "..") {
+	        $results[] = $file;
+	      }
+
+	    }
+
+	    // tidy up: close the handler
+	    closedir($handler);
+
+	    // loop and include_once
+	    foreach ($results as $key => $value) {
+	    	include_once($directory . "/" . $value);
+	    }
+
 	}
 }
 

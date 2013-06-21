@@ -1,12 +1,14 @@
 <?php
+
 /* **************************************************************************************************************************************************
  * 
- *
- *  Copyright (C) 2010 by Kristof Houwen, 8800 Roeselare.
+ *  Copyright (C) 2013 by Kristof Houwen, Belgium.
  *  All rights reserved.
  *
- *  This source code is the proprietary confidential property of Kristof Houwen, and is provided to licensee solely for documentation and
- *  educational purposes. Reproduction, publication, or distribution in any form to any party other than the licensee is strictly prohibited.
+ *  Licensed under the European Union Public Licence (EUPL), Version 1.1 (the "License"); you may not use this file except in compliance
+ *  with the License. You may obtain a copy of the License at
+ *
+ *	http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
  *
  *  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
  *  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
@@ -18,10 +20,11 @@
  *  E-mail:		kristof(at)sitsol.be
  *  Url:		www.sitsol.be
  * 
- *  Project:    SitSol internal framework
- *  Version:	0.1             10/11/2011
+ *  Project:    SitSol Construct
+ *  Version:	0.1             
  *
  * *****************************************************************************************************************************************************/
+
 
 /** TODO ******** 
 

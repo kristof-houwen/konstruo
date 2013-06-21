@@ -1,4 +1,4 @@
 sitsol-construct
 ================
 
-Internal PHP framework 
+PHP framework SitSol

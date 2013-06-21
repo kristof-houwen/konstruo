@@ -1,14 +1,4 @@
-<?php include VIEWS_PATH . "/shared/head.php"; ?>
-<body>
-<div class="span2">
-  	<ul class="nav nav-list">
-        <li class="nav-header">List header</li>
-        <?php foreach ($model->menu as $key => $value) {
-            print('<li class="active"><a href="#">' . $value . '</a></li>');
-        }
-?>
-    </ul>
-</div>
+
 <div class="span10">
     <h3>Hello <?php echo $model->firstname; ?> </h3>
     <!-- main content comes here -->
@@ -26,5 +16,4 @@
     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </div>
-</body>
-</html>
+

@@ -153,37 +153,37 @@ AddType text/vtt                            vtt
 # Gzip compression
 # ----------------------------------------------------------------------
 
-<IfModule mod_deflate.c>
+#<IfModule mod_deflate.c>
 
   # Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
-  <IfModule mod_setenvif.c>
-    <IfModule mod_headers.c>
-      SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
-      RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
-    </IfModule>
-  </IfModule>
+#  <IfModule mod_setenvif.c>
+#    <IfModule mod_headers.c>
+#      SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+#      RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+#    </IfModule>
+#  </IfModule>
 
   # Compress all output labeled with one of the following MIME-types
-  <IfModule mod_filter.c>
-    AddOutputFilterByType DEFLATE application/atom+xml \
-                                  application/javascript \
-                                  application/json \
-                                  application/rss+xml \
-                                  application/vnd.ms-fontobject \
-                                  application/x-font-ttf \
-                                  application/xhtml+xml \
-                                  application/xml \
-                                  font/opentype \
-                                  image/svg+xml \
-                                  image/x-icon \
-                                  text/css \
-                                  text/html \
-                                  text/plain \
-                                  text/x-component \
-                                  text/xml
-  </IfModule>
+#  <IfModule mod_filter.c>
+#    AddOutputFilterByType DEFLATE application/atom+xml \
+#                                  application/javascript \
+#                                  application/json \
+#                                  application/rss+xml \
+#                                  application/vnd.ms-fontobject \
+#                                  application/x-font-ttf \
+#                                  application/xhtml+xml \
+#                                  application/xml \
+#                                  font/opentype \
+#                                  image/svg+xml \
+#                                  image/x-icon \
+#                                  text/css \
+#                                  text/html \
+#                                  text/plain \
+#                                  text/x-component \
+#                                  text/xml
+#  </IfModule>
 
-</IfModule>
+#</IfModule>
 
 
 # ----------------------------------------------------------------------
@@ -266,14 +266,14 @@ AddType text/vtt                            vtt
 # ----------------------------------------------------------------------
 
 # FileETag None is not enough for every server.
-<IfModule mod_headers.c>
-  Header unset ETag
-</IfModule>
+#<IfModule mod_headers.c>
+#  Header unset ETag
+#</IfModule>
 
 # Since we're sending far-future expires, we don't need ETags for
 # static content.
 #   developer.yahoo.com/performance/rules.html#etags
-FileETag None
+#FileETag None
 
 
 # ----------------------------------------------------------------------
@@ -340,7 +340,7 @@ FileETag None
 # The Friendly URLs part
 # RewriteCond %{REQUEST_FILENAME} !-f
 # RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteRule ^(.*)$ index.php?rt=$1 [L,QSA]
+ RewriteRule ^(.*)$ index.php?rt=$1 [L,QSA]
 
 # redirect all requests to favicon.ico and favicon.ico
 # to /favicon.ico

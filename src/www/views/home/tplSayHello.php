@@ -1,8 +1,7 @@
 <?php include VIEWS_PATH . "/shared/head.php"; ?>
-<body>
         
 <?php include($content); ?>
-            
+        <p>template sayHello</p>    
 
 
 <?php include VIEWS_PATH . "/shared/bottom.php"; ?>

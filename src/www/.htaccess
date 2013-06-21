@@ -155,7 +155,7 @@ AddType text/vtt                            vtt
 
 #<IfModule mod_deflate.c>
 
-  # Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
+# Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
 #  <IfModule mod_setenvif.c>
 #    <IfModule mod_headers.c>
 #      SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
@@ -163,7 +163,7 @@ AddType text/vtt                            vtt
 #    </IfModule>
 #  </IfModule>
 
-  # Compress all output labeled with one of the following MIME-types
+# Compress all output labeled with one of the following MIME-types
 #  <IfModule mod_filter.c>
 #    AddOutputFilterByType DEFLATE application/atom+xml \
 #                                  application/javascript \
@@ -330,28 +330,25 @@ AddType text/vtt                            vtt
 # performance impact: http://goo.gl/Mluzd
 
 <IfModule mod_rewrite.c>
-  Options +FollowSymlinks
-# Options +SymLinksIfOwnerMatch
-  RewriteEngine On
-# RewriteBase /
+# Options +FollowSymlinks
+ Options +SymLinksIfOwnerMatch
+ RewriteEngine On
+ #RewriteBase /
 </IfModule>
 
-
-# The Friendly URLs part
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_FILENAME} !-d
- RewriteRule ^(.*)$ index.php?rt=$1 [L,QSA]
+#do not rewrite if directory (-d) or a file (-f)
+#RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
 
 # redirect all requests to favicon.ico and favicon.ico
 # to /favicon.ico
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^/favicon.ico$ favicon.ico [L,QSA]
+# RewriteRule ^/favicon.ico$ favicon.ico [L,QSA]
 
 # redirect all requests img 
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^/img(.*)$ assets$2 [L,QSA]
+# RewriteRule ^/img(.*)$ assets$2 [L,QSA]
+
+# The Friendly URLs part
+RewriteRule ^(.*)$ index.php?rt=$1 [L,QSA]
 
 # ----------------------------------------------------------------------
 # Suppress or force the "www." at the beginning of URLs
@@ -434,7 +431,7 @@ RewriteRule ^/img(.*)$ assets$2 [L,QSA]
 # same name does not exist.
 # webmasterworld.com/apache/3808792.htm
 
-Options -MultiViews
+# Options -MultiViews
 
 
 # ----------------------------------------------------------------------
@@ -477,20 +474,20 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 # Block access to "hidden" directories or files whose names begin with a
 # period. This includes directories used by version control systems such as
 # Subversion or Git.
-<IfModule mod_rewrite.c>
-  RewriteCond %{SCRIPT_FILENAME} -d [OR]
-  RewriteCond %{SCRIPT_FILENAME} -f
-  RewriteRule "(^|/)\." - [F]
-</IfModule>
+# <IfModule mod_rewrite.c>
+#  RewriteCond %{SCRIPT_FILENAME} -d [OR]
+#  RewriteCond %{SCRIPT_FILENAME} -f
+#  RewriteRule "(^|/)\." - [F]
+#</IfModule>
 
 # Block access to backup and source files. These files may be left by some
 # text/html editors and pose a great security danger, when anyone can access
 # them.
-<FilesMatch "(\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)$">
-  Order allow,deny
-  Deny from all
-  Satisfy All
-</FilesMatch>
+#<FilesMatch "(\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)$">
+#  Order allow,deny
+#  Deny from all
+#  Satisfy All
+#</FilesMatch>
 
 # If your server is not already configured as such, the following directive
 # should be uncommented in order to set PHP's register_globals option to OFF.

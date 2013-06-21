@@ -1,6 +1,6 @@
 {
 	"require": {
-   	 	"lastcraft/simpletest": "1.1.*"
+   	 	"phpunit/phpunit": "3.7.*"
 	}
 
 }

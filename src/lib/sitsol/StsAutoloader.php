@@ -1,7 +1,7 @@
 <?php
 /* **************************************************************************************************************************************************
  * 
- *  Copyright (C) 2013 by Kristof Houwen, Belgium.
+ *  Copyright (C) 2014 by Kristof Houwen, Belgium.
  *  All rights reserved.
  *
  *  Licensed under the European Union Public Licence (EUPL), Version 1.1 (the "License"); you may not use this file except in compliance
@@ -15,12 +15,12 @@
  *  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *
  *  Author:		Kristof Houwen
- *  Company:    SitSol webdesign
- *  E-mail:		kristof(at)sitsol.be
- *  Url:		www.sitsol.be
+ *  Company:    
+ *  E-mail:		khouwen@gmail.com
+ *  Url:		
  * 
- *  Project:    SitSol Construct
- *  Version:	0.1             
+ *  Project:    Konstruo
+ *  Version:	0.5             
  *
  * *****************************************************************************************************************************************************/
 

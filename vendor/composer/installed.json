@@ -1,5 +1,52 @@
 [
     {
+        "name": "phpunit/php-token-stream",
+        "version": "1.1.5",
+        "version_normalized": "1.1.5.0",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/sebastianbergmann/php-token-stream.git",
+            "reference": "1.1.5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/sebastianbergmann/php-token-stream/zipball/1.1.5",
+            "reference": "1.1.5",
+            "shasum": ""
+        },
+        "require": {
+            "ext-tokenizer": "*",
+            "php": ">=5.3.3"
+        },
+        "time": "2012-10-11 04:47:14",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "PHP/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "include-path": [
+            ""
+        ],
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Sebastian Bergmann",
+                "email": "sb@sebastian-bergmann.de",
+                "role": "lead"
+            }
+        ],
+        "description": "Wrapper around PHP's tokenizer extension.",
+        "homepage": "http://www.phpunit.de/",
+        "keywords": [
+            "tokenizer"
+        ]
+    },
+    {
         "name": "symfony/yaml",
         "version": "v2.3.1",
         "version_normalized": "2.3.1.0",
@@ -189,53 +236,6 @@
         "homepage": "http://www.phpunit.de/",
         "keywords": [
             "timer"
-        ]
-    },
-    {
-        "name": "phpunit/php-token-stream",
-        "version": "1.1.5",
-        "version_normalized": "1.1.5.0",
-        "source": {
-            "type": "git",
-            "url": "git://github.com/sebastianbergmann/php-token-stream.git",
-            "reference": "1.1.5"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/sebastianbergmann/php-token-stream/zipball/1.1.5",
-            "reference": "1.1.5",
-            "shasum": ""
-        },
-        "require": {
-            "ext-tokenizer": "*",
-            "php": ">=5.3.3"
-        },
-        "time": "2012-10-11 04:47:14",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "PHP/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "include-path": [
-            ""
-        ],
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Sebastian Bergmann",
-                "email": "sb@sebastian-bergmann.de",
-                "role": "lead"
-            }
-        ],
-        "description": "Wrapper around PHP's tokenizer extension.",
-        "homepage": "http://www.phpunit.de/",
-        "keywords": [
-            "tokenizer"
         ]
     },
     {

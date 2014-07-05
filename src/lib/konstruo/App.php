@@ -1,3 +1,4 @@
+
 <?php 
 /* **************************************************************************************************************************************************
  * 
@@ -24,9 +25,9 @@
  *
  * *****************************************************************************************************************************************************/
 
-require_once('StsAutoloader.php');
+require_once('Autoloader.php');
 
-class StsApp {
+class App {
 	private $_controllerName;
 	private $_actionName;
 	private $_routes;		// array of StsRoute objects
@@ -49,9 +50,9 @@ class StsApp {
 	// read the config.ini file(s)
 	public function init() 
 	{
-		$this->loadInterfaces();
+		//$this->loadInterfaces();
 		$this->readConfig();
-		spl_autoload_register(array('StsAutoloader', 'load_class'));
+		spl_autoload_register(array('Autoloader', 'load_class'));
 		
 		//$this->readRoutes();
 	}
@@ -60,7 +61,7 @@ class StsApp {
 	public function start() 
 	{
 		// testen van de router
-		$router = new StsRouter($this->_registry);
+		$router = new Router($this->_registry);
 		$router->processUri();
 		$reflect  = new ReflectionClass($router->get_controller());			
 		$instance = $reflect->newInstanceArgs();
@@ -127,7 +128,7 @@ class StsApp {
 		
 		// autoload
 		foreach($autoload_section as $key => $value){
-			StsAutoloader::add_path_to_search(APP_PATH . $value);	
+			Autoloader::add_path_to_search(APP_PATH . $value);	
 		}
 		
 	}
@@ -165,6 +166,7 @@ class StsApp {
 		}
 	}
 
+/** obsolete ***
 	private function loadInterfaces()
 	{
 		$directory = APP_PATH . "/lib/sitsol/interfaces";
@@ -194,6 +196,7 @@ class StsApp {
 	    }
 
 	}
+***** */
 }
 
 

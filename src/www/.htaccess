@@ -330,10 +330,10 @@ AddType text/vtt                            vtt
 # performance impact: http://goo.gl/Mluzd
 
 <IfModule mod_rewrite.c>
-# Options +FollowSymlinks
+ Options +FollowSymlinks
  Options +SymLinksIfOwnerMatch
  RewriteEngine On
- #RewriteBase /
+ RewriteBase /
 </IfModule>
 
 #do not rewrite if directory (-d) or a file (-f)

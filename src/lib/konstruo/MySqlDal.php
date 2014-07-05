@@ -32,7 +32,7 @@
  *
  * *****************************************************************************************************************************************************/
 
-class StsMySqlDal {
+class MySqlDal {
    private static $conn = null;
 
    public static function  setConn($host, $db, $user, $pwd) {

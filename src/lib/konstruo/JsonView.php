@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 /* **************************************************************************************************************************************************
  * 
  *  Copyright (C) 2014 by Kristof Houwen, Belgium.
@@ -21,21 +20,51 @@
  *  Url:		
  * 
  *  Project:    Konstruo
- *  Version:	0.5           
+ *  Version:	0.5          
  *
  * *****************************************************************************************************************************************************/
 
- 
- class StsRoute {
+class JsonView implements IView {
+	
+	private $_content = null;			// every view has a viewmodel 
+	
+	private $_error404 = "404.html";
 
-    public $url;
- 	public $controller;
- 	public $action;
- 	public $args;
 
- 	public function __construct(){
- 		$args = array();
- 	}
- }
+	/* ***** FIELDS & CONSTRUCTORS ********** */
 
- ?>
+	public function __construct($content)
+	{
+		$this->_content = $content;
+	}
+
+	/* ***** GETTERS - SETTERS ********** */ 
+	public function set_base_url($value)
+	{
+		$this->_base_url = $value;
+	}
+
+	public function get_content()
+	{
+		return $this->_content;
+	}
+
+	public function set_content($value)
+	{
+		$this->_content = $value;
+	}
+
+
+	/* ***** PUBLIC FUNCTIONS ********** */
+	public function render()
+	{
+		if ($this->_content != null)
+			echo json_encode($this->_content);
+		else
+			echo "";
+
+	}
+}
+
+
+?>

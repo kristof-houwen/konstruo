@@ -6,8 +6,8 @@ $posLastSlash = strrpos($realpath, "/");
 define ('PUBLIC_PATH', $realpath);
 define('APP_PATH', substr($realpath, 0, $posLastSlash));
 
-require_once(APP_PATH . '/lib/sitsol/StsApp.php');
-$app = new StsApp();
+require_once(APP_PATH . '/lib/konstruo/App.php');
+$app = new App();
 $app->init();
 $app->start();
 $app->dispose();

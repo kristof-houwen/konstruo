@@ -1,5 +1,4 @@
 <?php
-
 /* **************************************************************************************************************************************************
  * 
  *  Copyright (C) 2014 by Kristof Houwen, Belgium.
@@ -25,53 +24,55 @@
  *
  * *****************************************************************************************************************************************************/
 
-	
-define('SITE_PATH', realpath(dirname(__FILE__)));
-define('ERROR404', 'error404.html');
 
-require_once('StsBase.php');
-require_once('lib/smarty/Smarty.class.php');
-
-interface IViewEngine 
+class Autoloader
 {
-	public function get_smarty();
-	public function set_smarty($value);
-	public function renderHtmlView($template);
-}
-
-class StsViewEngine extends StsBase implements IViewEngine {
-	/* ***** FIELDS & CONSTRUCTORS ********** */
-	private $_smarty = null;
-
-	public function __construct()
+	private static $_pathToSearch = array();
+	private static $_cache = array();
+	
+	public static function load_class($className)
 	{
-		$this->_smarty = new Smarty();
-		$this->_smarty->setTemplateDir(SITE_PATH . '/templates');
-		$this->_smarty->setCompileDir(SITE_PATH . '/templates_c');
-		$this->_smarty->setConfigDir(SITE_PATH . '/config');
-		$this->_smarty->setCacheDir(SITE_PATH . '/cache');
-	}
-
-	/* ***** GETTERS - SETTERS ********** */ 
-	public function get_smarty() { 
-		return $this->_smarty;
-	}
-	public function set_smarty($value) { 
-		$this->_smarty = $value;
-	}
-
-
-	/* ***** PUBLIC FUNCTIONS ********** */
-	public function renderHtmlView($template)
-	{	
-		$tmplDir = $this->_smarty->getTemplateDir();
-		if ($template == null || !is_file($tmplDir[0] . $template)) {
-			$template = ERROR404;
+		if (self::$_cache[$className]) {
+			include self::$_cache[$className];
+		} else {
+			$file = self::search_file($className);
+			if (!is_null($file)) {
+				include $file;
+			} else {
+				throw new Exception('Class ' . $className . ' not found.');
+			}
 		}
-		$this->_smarty->display($template);
+		
+	}
+	
+	static function search_file($fileName)
+	{
+		foreach(self::$_pathToSearch as $path) {
+			if (is_file($path . "/" . $fileName . ".php")) {
+				self::add_to_cache($fileName, $path . "/" . $fileName . ".php");
+				return $path . "/" . $fileName . ".php";
+			}
+		}
+		return null;
+	}
+	
+	public static function add_path_to_search($path)
+	{
+		if (is_dir($path)) {
+			array_push(self::$_pathToSearch, $path);
+		}
+	}
+	
+	private static function add_to_cache($className, $fileName){
+		if (isset($_SESSION['autoloader_path'])) {
+			$_SESSION['autoloader_path'][$className] = $fileName;
+		} else {
+			self::$_cache[$className] = $fileName;
+			$_SESSION['autoloader_path'] = self::$_cache;
+		}
+		
 	}
 
 }
-
 
 ?>

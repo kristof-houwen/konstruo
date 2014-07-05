@@ -49,7 +49,7 @@ De default_route is verplicht en moet als laatste staan, die is de rout die alti
  * Takes the incoming URI and routes to the correct controller and action method
  *
  */
-class StsRouter {
+class Router {
 	
 	private $_uri;
 	private $_controllerName;
@@ -100,11 +100,13 @@ class StsRouter {
 			if (empty($this->_uri))
 			 	return;
 			
+			print_r($this->_uri);
+			
 			$urlParts = explode('/', $this->_uri);
 			
 			$this->_controllerName = ucfirst(trim($urlParts[0]));
 			if (!empty($this->_controllerName))
-				$this->_controllerName = $this->_controllerName . 'Controller';
+				$this->_controllerName = ucwords($this->_controllerName) . 'Controller';
 			
 			$this->_actionName = trim($urlParts[1]);
 			

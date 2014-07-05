@@ -20,22 +20,29 @@
  *  Url:		
  * 
  *  Project:    Konstruo
- *  Version:	0.5          
+ *  Version:	0.5            
  *
  * *****************************************************************************************************************************************************/
 
-class StsJsonView implements IView {
+// interface IView {
+// 	public function render();
+// }
+
+class HtmlView implements IView {
 	
-	private $_content = null;			// every view has a viewmodel 
+	private $_tpl = null;	// filename used as main template 
+	private $_content = null; // filename used for content display  
+	private $_viewModel = null;			// every view has a viewmodel 
+	private $_base_url = null;
 	
 	private $_error404 = "404.html";
 
 
 	/* ***** FIELDS & CONSTRUCTORS ********** */
 
-	public function __construct($content)
+	public function __construct()
 	{
-		$this->_content = $content;
+		// caching ???
 	}
 
 	/* ***** GETTERS - SETTERS ********** */ 
@@ -54,15 +61,58 @@ class StsJsonView implements IView {
 		$this->_content = $value;
 	}
 
+	public function get_tpl() 
+	{
+		return $this->_tpl;
+	}
+
+	public function set_tpl($value)
+	{
+		$this->_tpl = $value;
+	}
+
+	public function get_viewModel()
+	{
+		return $this->_viewModel;
+	}
+
+	public function set_viewModel($value)
+	{
+		$this->_viewModel = $value;
+	}
+
+	public function set_404($value)
+	{
+		$this->_error404 = $value;
+	}
+
+	public function get_404($value)
+	{
+		return $this->_error404;
+	}
 
 	/* ***** PUBLIC FUNCTIONS ********** */
 	public function render()
 	{
-		if ($this->_content != null)
-			echo json_encode($this->_content);
-		else
-			echo "";
+		$model = null;
+		$content = null;
+		$base_url = $this->_base_url;
 
+		if ($this->_viewModel != null) 
+			$model=$this->_viewModel;
+
+		if ($this->_content != null && is_file(VIEWS_PATH . "/" . $this->_content))
+		{
+			$content = VIEWS_PATH . "/" . $this->_content;
+			if ($this->_tpl != null && is_file(VIEWS_PATH . "/" . $this->_tpl))
+				include(VIEWS_PATH . "/" . $this->_tpl);
+			else
+				include($content);
+		} else 
+			include(PUBLIC_PATH . "/" . $this->_error404);
+		
+		
+		
 	}
 }
 

@@ -1,6 +1,6 @@
 <?php	
 
-	class Foo extends StsBase {
+	class Foo extends Base {
 
 		private $firstname;
 		private $menu;

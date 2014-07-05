@@ -26,7 +26,7 @@
  * *****************************************************************************************************************************************************/
 
 
-class StsController {
+class Controller {
 	
 	private $_view = null;
 	private  $_registry = null;
@@ -76,7 +76,7 @@ class StsController {
 	 */
 	public function view($content, $model = null, $tpl = null) {
 		if ($this->_view == null)
-			$this->_view = new StsHtmlView();
+			$this->_view = new HtmlView();
 
 		// set tpl and model
 		if ($tpl != null)
@@ -97,7 +97,7 @@ class StsController {
 	 *
 	 */
 	public function json($content) {
-		$this->_view = new StsJsonView($content);
+		$this->_view = new JsonView($content);
 		$this->_view->set_base_url("http://" . $this->_registry["base_url"] . "/");
 		return $this->_view;
 	}

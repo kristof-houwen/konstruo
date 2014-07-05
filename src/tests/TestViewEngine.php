@@ -1,7 +1,7 @@
 <?php
-require_once('../StsApp.php');
+require_once('../App.php');
 
-$app = new StsApp();
+$app = new App();
 $app->init();
 $app->start();
 $app->dispose();

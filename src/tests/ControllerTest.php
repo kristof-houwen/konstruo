@@ -1,7 +1,7 @@
 <?php
 
 define('SITE_PATH', realpath(dirname(__FILE__)));
-require_once(SITE_PATH . '/../StsController.php');
+require_once(SITE_PATH . '/../Controller.php');
 
 class ControllerTest extends PHPUnit_Framework_TestCase {
 
@@ -16,14 +16,14 @@ class ControllerTest extends PHPUnit_Framework_TestCase {
 
 	public function testControllerCreatesHtmlView()
 	{	
-		$viewMock = $this->getMock('StsHtmlView');
+		$viewMock = $this->getMock('HtmlView');
 		$viewMock->expects($this->once())
 						->method('set_masterTemplate');
 
 		$controller = new StsController();
 		$controller->set_masterTpl('helloworld.html');
 		$view = $controller->view();
-		$this->assertInstanceOf('StsHtmlView', $view);	
+		$this->assertInstanceOf('HtmlView', $view);	
 	 		
 	}
 
